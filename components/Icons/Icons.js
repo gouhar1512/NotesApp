@@ -1,12 +1,18 @@
 import { Feather } from "@expo/vector-icons";
 
-export const MenuIcon = ({ size, color }) => (
-  <Feather name="menu" size={size} color={color} />
-);
-export const MoreVerticalIcon = ({ size, color }) => (
-  <Feather name="more-vertical" size={size} color={color} />
+const DEFAULT_SIZE = 24;
+const DEFAULT_COLOR = "black";
+
+const Icon = ({ name, size, color }) => (
+  <Feather
+    name={name}
+    size={size || DEFAULT_SIZE}
+    color={color || DEFAULT_COLOR}
+  />
 );
 
-export const SearchIcon = ({ size, color }) => (
-  <Feather name="search" size={size} color={color} />
+export const MenuIcon = ({ size, color }) => <Icon name="menu" />;
+export const MoreVerticalIcon = ({ size, color }) => (
+  <Icon name="more-vertical" />
 );
+export const SearchIcon = ({ size, color }) => <Icon name="search" />;

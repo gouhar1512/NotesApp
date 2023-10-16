@@ -1,31 +1,23 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import {
   Feather,
   MenuIcon,
   MoreVerticalIcon,
   SearchIcon,
 } from "../Icons/Icons";
+import { headerStyles } from "../mainStyles";
 const Header = () => {
   return (
-    <View style={style.header}>
-      <MenuIcon size={24} color="black" />
-      <Text>All Notes</Text>
-      <SearchIcon size={24} color="black" />
-      <MoreVerticalIcon size={24} color="black" />
+    <View style={headerStyles.header}>
+      <MenuIcon />
+      <Text style={headerStyles.title}>My notes</Text>
+      <View style={headerStyles.headerRight}>
+        <SearchIcon />
+        <MoreVerticalIcon />
+      </View>
     </View>
   );
 };
-
-const style = StyleSheet.create({
-  header: {
-    height: 60,
-    marginTop: 50,
-    padding: 16,
-    backgroundColor: "white",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-});
 
 export default Header;
