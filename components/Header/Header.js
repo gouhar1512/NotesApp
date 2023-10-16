@@ -7,14 +7,14 @@ import {
   SearchIcon,
 } from "../Icons/Icons";
 import { headerStyles } from "../mainStyles";
-const Header = () => {
+const Header = ({ toggleOptions }) => {
   return (
     <View style={headerStyles.header}>
       <MenuIcon />
       <Text style={headerStyles.title}>My notes</Text>
       <View style={headerStyles.headerRight}>
         <SearchIcon />
-        <MoreVerticalIcon />
+        <MoreVerticalIcon onPressHandler={toggleOptions} />
       </View>
     </View>
   );
