@@ -11,7 +11,7 @@ export const headerStyles = StyleSheet.create({
   header: {
     height: 60,
     padding: 16,
-    backgroundColor: "transparent",
+    backgroundColor: "white",
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -40,6 +40,13 @@ export const noteStyles = StyleSheet.create({
   },
   inputTitle: {
     fontSize: 20,
+    fontWeight: "500",
+    width: 200,
+  },
+  inputBody: {
+    padding: 16,
+    textAlignVertical: "top",
+    backgroundColor: "#FFF5D1",
   },
 });
 
@@ -53,15 +60,14 @@ export const buttonStyles = StyleSheet.create({
     borderRadius: 30,
     borderColor: "orange",
     backgroundColor: "white",
-    zIndex: 10,
   },
 });
 
 export const moreOptionsStyles = StyleSheet.create({
   container: {
     position: "absolute",
-    right: 25,
-    top: 60,
+    right: 22,
+    top: 15,
     padding: 16,
     backgroundColor: "white",
     width: 150,

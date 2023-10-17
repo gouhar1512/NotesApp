@@ -1,15 +1,17 @@
-import { FlatList, Text, View } from "react-native";
+import React from "react";
+import { FlatList } from "react-native";
 import { Note } from "../Note/Note";
-import { noteStyles } from "../mainStyles";
+import { useContext } from "react";
+import { NoteContext } from "../../context/noteContext";
 
 export const NotesList = () => {
-  const mappedData = [{}, {}, {}, {}, {}, {}];
+  const { notesList } = useContext(NoteContext);
 
   return (
     <FlatList
       numColumns={2}
-      data={mappedData}
-      renderItem={({ item }) => <Note />}
+      data={notesList}
+      renderItem={({ item }) => <Note note={item} />}
     />
   );
 };
