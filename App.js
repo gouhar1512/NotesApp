@@ -1,25 +1,31 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import React from "react";
 import Header from "./components/Header/Header";
 import { appStyles } from "./components/mainStyles";
 import { NotesList } from "./components/NotesList/NotesList";
 import { AddNote } from "./components/AddNote/AddNote";
 import { MoreOptions } from "./components/MoreOptions/MoreOptions";
-import { useState } from "react";
+import { useReducer } from "react";
+import { noteReducer } from "./context/noteReducer";
+import {
+  NoteContext,
+  NoteDispathContext,
+  initialState,
+} from "./context/noteContext";
+import { View } from "react-native";
 
 export default function App() {
-  const [showOptions, setShowOptions] = useState(true);
-
-  const toggleOptions = (show) => {
-    setShowOptions(show);
-  };
+  const [appState, dispatch] = useReducer(noteReducer, initialState);
 
   return (
     <View style={appStyles.container}>
-      <Header toggleOptions={toggleOptions} />
-      <NotesList />
-      <MoreOptions showOptions={showOptions} toggleOptions={toggleOptions} />
-      <AddNote />
+      <NoteContext.Provider value={appState}>
+        <NoteDispathContext.Provider value={dispatch}>
+          <Header />
+          <NotesList />
+          <MoreOptions />
+          <AddNote />
+        </NoteDispathContext.Provider>
+      </NoteContext.Provider>
     </View>
   );
 }

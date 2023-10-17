@@ -1,10 +1,12 @@
+import React, { useContext } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { moreOptionsStyles } from "../mainStyles";
-import { useState } from "react";
+import { NoteContext, NoteDispathContext } from "../../context/noteContext";
+import { TOGGLE_MORE_OPTIONS } from "../../context/constants";
 
-const Option = ({ value }) => {
+const Option = ({ value, onPressHandler }) => {
   return (
-    <TouchableOpacity style={moreOptionsStyles.option}>
+    <TouchableOpacity style={moreOptionsStyles.option} onPress={onPressHandler}>
       <View>
         <Text>{value}</Text>
       </View>
@@ -12,7 +14,20 @@ const Option = ({ value }) => {
   );
 };
 
-export const MoreOptions = ({ showOptions, toggleOptions }) => {
+export const MoreOptions = () => {
+  const { uiState } = useContext(NoteContext);
+  const dispatch = useContext(NoteDispathContext);
+  const showOptions = uiState.isMoreOptionsOpen;
+
+  const closeMoreOptions = () => {
+    dispatch({
+      type: TOGGLE_MORE_OPTIONS,
+      payload: {
+        show: false,
+      },
+    });
+  };
+
   if (!showOptions) {
     return <></>;
   }
@@ -20,11 +35,11 @@ export const MoreOptions = ({ showOptions, toggleOptions }) => {
   return (
     <TouchableOpacity
       style={[moreOptionsStyles.container]}
-      onPress={() => toggleOptions(false)}>
+      onPress={closeMoreOptions}>
       <View>
-        <Option value={"Edit"} />
-        <Option value={"View"} />
-        <Option value={"About"} />
+        <Option value={"Edit"} onPressHandler={closeMoreOptions} />
+        <Option value={"View"} onPressHandler={closeMoreOptions} />
+        <Option value={"About"} onPressHandler={closeMoreOptions} />
       </View>
     </TouchableOpacity>
   );

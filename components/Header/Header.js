@@ -1,20 +1,30 @@
-import React from "react";
-import { Text, View } from "react-native";
-import {
-  Feather,
-  MenuIcon,
-  MoreVerticalIcon,
-  SearchIcon,
-} from "../Icons/Icons";
+import React, { useContext } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import { MenuIcon, MoreVerticalIcon, SearchIcon } from "../Icons/Icons";
 import { headerStyles } from "../mainStyles";
-const Header = ({ toggleOptions }) => {
+import { NoteDispathContext } from "../../context/noteContext";
+import { TOGGLE_MORE_OPTIONS } from "../../context/constants";
+const Header = () => {
+  const dispatch = useContext(NoteDispathContext);
+
+  const openMoreOptions = () => {
+    dispatch({
+      type: TOGGLE_MORE_OPTIONS,
+      payload: {
+        show: true,
+      },
+    });
+  };
+
   return (
     <View style={headerStyles.header}>
       <MenuIcon />
       <Text style={headerStyles.title}>My notes</Text>
       <View style={headerStyles.headerRight}>
         <SearchIcon />
-        <MoreVerticalIcon onPressHandler={toggleOptions} />
+        <TouchableOpacity onPress={openMoreOptions}>
+          <MoreVerticalIcon />
+        </TouchableOpacity>
       </View>
     </View>
   );
