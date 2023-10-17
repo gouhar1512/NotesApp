@@ -12,11 +12,15 @@ const Icon = ({ name, size, color }) => (
   />
 );
 
-export const MenuIcon = ({ size, color }) => <Icon name="menu" />;
-export const MoreVerticalIcon = ({ size, color }) => (
-  <Icon name="more-vertical" />
+export const MenuIcon = ({ size, color }) => (
+  <Icon name="menu" size={size} color={color} />
 );
-export const SearchIcon = ({ size, color }) => <Icon name="search" />;
+export const MoreVerticalIcon = ({ size, color }) => (
+  <Icon name="more-vertical" size={size} color={color} />
+);
+export const SearchIcon = ({ size, color }) => (
+  <Icon name="search" size={size} color={color} />
+);
 
 export const AddIcon = () => (
   <MaterialCommunityIcons

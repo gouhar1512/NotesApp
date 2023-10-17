@@ -1,31 +1,16 @@
 import React from "react";
-import Header from "./components/Header/Header";
-import { appStyles } from "./components/mainStyles";
-import { NotesList } from "./components/NotesList/NotesList";
-import { AddNote } from "./components/AddNote/AddNote";
-import { MoreOptions } from "./components/MoreOptions/MoreOptions";
-import { useReducer } from "react";
-import { noteReducer } from "./context/noteReducer";
-import {
-  NoteContext,
-  NoteDispathContext,
-  initialState,
-} from "./context/noteContext";
-import { View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import HomeScreen from "./screens/HomeScreen";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [appState, dispatch] = useReducer(noteReducer, initialState);
-
   return (
-    <View style={appStyles.container}>
-      <NoteContext.Provider value={appState}>
-        <NoteDispathContext.Provider value={dispatch}>
-          <Header />
-          <NotesList />
-          <MoreOptions />
-          <AddNote />
-        </NoteDispathContext.Provider>
-      </NoteContext.Provider>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
