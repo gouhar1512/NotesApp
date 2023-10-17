@@ -10,7 +10,7 @@ import {
 } from "../../context/constants";
 import { AllNotesIcon, FavouriteIcon, TrashIcon } from "../Icons/Icons";
 
-const Option = ({ value, onPressHandler, icon, selected }) => {
+const Option = ({ title, onPressHandler, icon, selected }) => {
   return (
     <TouchableOpacity
       style={[
@@ -19,7 +19,7 @@ const Option = ({ value, onPressHandler, icon, selected }) => {
       ]}
       onPress={onPressHandler}>
       {icon}
-      <Text style={sideBarStyles.text}>{value}</Text>
+      <Text style={sideBarStyles.text}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -50,29 +50,42 @@ const SideBar = () => {
     return <></>;
   }
 
+  const optionsDataToMapToComponents = [
+    {
+      title: "All Notes",
+      value: ALL_NOTES_SELECTED,
+      icon: <AllNotesIcon />,
+    },
+    {
+      title: "Favourite notes",
+      value: FAVOURITE_NOTES_SELECTED,
+      icon: <FavouriteIcon />,
+    },
+    {
+      title: "Recycle bin",
+      value: RECYCLE_BIN_SELECTED,
+      icon: <TrashIcon />,
+    },
+  ];
+
+  const optionsDataMappedToComponents = optionsDataToMapToComponents.map(
+    (option) => (
+      <Option
+        key={option.value}
+        title={option.title}
+        onPressHandler={() => handleSelectOption(option.value)}
+        icon={option.icon}
+        selected={selectedOption === option.value}
+      />
+    )
+  );
+
   return (
     <>
       <View style={sideBarStyles.backdrop} onTouchStart={closeSideBar} />
       <View style={sideBarStyles.sideBar}>
         <View>
-          <Option
-            value="All notes"
-            onPressHandler={() => handleSelectOption(ALL_NOTES_SELECTED)}
-            icon={<AllNotesIcon />}
-            selected={selectedOption === ALL_NOTES_SELECTED}
-          />
-          <Option
-            value="Favourite notes"
-            onPressHandler={() => handleSelectOption(FAVOURITE_NOTES_SELECTED)}
-            icon={<FavouriteIcon />}
-            selected={selectedOption === FAVOURITE_NOTES_SELECTED}
-          />
-          <Option
-            value="Recycle bin"
-            onPressHandler={() => handleSelectOption(RECYCLE_BIN_SELECTED)}
-            icon={<TrashIcon />}
-            selected={selectedOption === RECYCLE_BIN_SELECTED}
-          />
+          {optionsDataMappedToComponents}
           {/* <Option value="Toggle theme" onPressHandler={closeSideBar} /> */}
         </View>
       </View>
