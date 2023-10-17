@@ -38,6 +38,16 @@ export const noteStyles = StyleSheet.create({
     shadowColor: "black",
     elevation: 4,
   },
+
+  title: {
+    fontWeight: "800",
+    textAlign: "center",
+    borderBottomWidth: 1,
+    borderBottomColor: "#eee",
+    paddingBottom: 4,
+    marginBottom: 4,
+  },
+
   inputTitle: {
     fontSize: 20,
     fontWeight: "500",

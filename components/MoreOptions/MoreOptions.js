@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
 import { moreOptionsStyles } from "../mainStyles";
 import { NoteContext, NoteDispathContext } from "../../context/noteContext";
 import { TOGGLE_MORE_OPTIONS } from "../../context/constants";
@@ -33,14 +33,26 @@ export const MoreOptions = () => {
   }
 
   return (
-    <TouchableOpacity
-      style={[moreOptionsStyles.container]}
-      onPress={closeMoreOptions}>
-      <View>
-        <Option value={"Edit"} onPressHandler={closeMoreOptions} />
-        <Option value={"View"} onPressHandler={closeMoreOptions} />
-        <Option value={"About"} onPressHandler={closeMoreOptions} />
-      </View>
-    </TouchableOpacity>
+    <>
+      <View
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          left: 0,
+          top: 0,
+        }}
+        onTouchStart={closeMoreOptions}
+      />
+      <TouchableOpacity
+        style={[moreOptionsStyles.container]}
+        onPress={closeMoreOptions}>
+        <View>
+          <Option value={"Edit"} onPressHandler={closeMoreOptions} />
+          <Option value={"View"} onPressHandler={closeMoreOptions} />
+          <Option value={"About"} onPressHandler={closeMoreOptions} />
+        </View>
+      </TouchableOpacity>
+    </>
   );
 };

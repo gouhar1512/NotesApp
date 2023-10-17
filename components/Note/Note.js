@@ -23,6 +23,7 @@ export const Note = ({ note }) => {
       style={[noteStyles.note]}
       onPress={openNoteToViewOrUpdate}>
       <View>
+        {note.title && <Text style={noteStyles.title}>{note.title}</Text>}
         <Text>{note.body}</Text>
       </View>
     </TouchableOpacity>

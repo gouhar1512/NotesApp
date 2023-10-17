@@ -33,7 +33,12 @@ export const noteReducer = (state, action) => {
       const updatedState = deepClone(state);
       const id = state.noteToEdit.id;
       const index = updatedState.notesList.findIndex((note) => note.id === id);
-      updatedState.notesList[index].body = action.payload.body;
+      if (action.payload.body != undefined) {
+        updatedState.notesList[index].body = action.payload.body;
+      }
+      if (action.payload.title != undefined) {
+        updatedState.notesList[index].title = action.payload.title;
+      }
       return updatedState;
     }
 
