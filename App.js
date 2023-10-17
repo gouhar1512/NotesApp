@@ -9,6 +9,8 @@ import {
   NoteDispathContext,
   initialState,
 } from "./context/noteContext";
+import FavouriteNotesScreen from "./screens/FavouriteNotesScreen";
+import RecycleBinScreen from "./screens/RecycleBinScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,10 +25,30 @@ export default function App() {
               name="Home"
               component={HomeScreen}
               options={{
-                title: "My Notes",
+                title: "My notes",
               }}
             />
-            <Stack.Screen name="AddNote" component={AddNoteScreen} />
+            <Stack.Screen
+              name="AddNote"
+              component={AddNoteScreen}
+              options={{
+                title: "Add note",
+              }}
+            />
+            <Stack.Screen
+              name="FavouriteNotes"
+              component={FavouriteNotesScreen}
+              options={{
+                title: "Favourite notes",
+              }}
+            />
+            <Stack.Screen
+              name="RecycleBin"
+              component={RecycleBinScreen}
+              options={{
+                title: "Recycle bin",
+              }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </NoteDispathContext.Provider>

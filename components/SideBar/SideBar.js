@@ -9,6 +9,13 @@ import {
   TOGGLE_SIDE_BAR,
 } from "../../context/constants";
 import { AllNotesIcon, FavouriteIcon, TrashIcon } from "../Icons/Icons";
+import { useNavigation } from "@react-navigation/native";
+
+const OptionValueToScreenMap = {
+  [ALL_NOTES_SELECTED]: "Home",
+  [FAVOURITE_NOTES_SELECTED]: "FavouriteNotes",
+  [RECYCLE_BIN_SELECTED]: "RecycleBin",
+};
 
 const Option = ({ title, onPressHandler, icon, selected }) => {
   return (
@@ -29,6 +36,7 @@ const SideBar = () => {
 
   const { uiState } = useContext(NoteContext);
   const dispatch = useContext(NoteDispathContext);
+  const navigation = useNavigation();
 
   const showSideBar = uiState.isSideBarOpen;
 
@@ -43,6 +51,7 @@ const SideBar = () => {
 
   const handleSelectOption = (option) => {
     setSelectedOption(option);
+    navigation.navigate(OptionValueToScreenMap[option]);
     closeSideBar();
   };
 
