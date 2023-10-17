@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <View style={headerStyles.header}>
       <MenuIcon />
-      <Text style={headerStyles.title}>My notes</Text>
+      <Text style={headerStyles.title}>All notes</Text>
       <View style={headerStyles.headerRight}>
         <SearchIcon />
         <TouchableOpacity onPress={openMoreOptions}>

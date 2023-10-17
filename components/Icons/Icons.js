@@ -3,6 +3,7 @@ import { Feather } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 const DEFAULT_SIZE = 24;
 const DEFAULT_COLOR = "black";
+import { AntDesign } from "@expo/vector-icons";
 
 const Icon = ({ name, size, color }) => (
   <Feather
@@ -22,10 +23,15 @@ export const SearchIcon = ({ size, color }) => (
   <Icon name="search" size={size} color={color} />
 );
 
-export const AddIcon = () => (
+export const AddIcon = ({ onPressHandler }) => (
   <MaterialCommunityIcons
     name="pencil-circle-outline"
     size={50}
     color="darkorange"
+    onPress={onPressHandler}
   />
+);
+
+export const FavouriteIcon = () => (
+  <AntDesign name="hearto" size={DEFAULT_SIZE} color={DEFAULT_COLOR} />
 );

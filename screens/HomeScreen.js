@@ -8,7 +8,7 @@ import {
 import Header from "../components/Header/Header";
 import { NotesList } from "../components/NotesList/NotesList";
 import { MoreOptions } from "../components/MoreOptions/MoreOptions";
-import { AddNote } from "../components/AddNote/AddNote";
+import { AddNoteIcon } from "../components/AddNoteIcon/AddNoteIcon";
 import { noteReducer } from "../context/noteReducer";
 import { appStyles } from "../components/mainStyles";
 
@@ -21,7 +21,7 @@ const HomeScreen = () => {
           <Header />
           <NotesList />
           <MoreOptions />
-          <AddNote />
+          <AddNoteIcon />
         </NoteDispathContext.Provider>
       </NoteContext.Provider>
     </View>

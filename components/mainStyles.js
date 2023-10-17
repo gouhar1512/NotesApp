@@ -10,7 +10,6 @@ export const appStyles = StyleSheet.create({
 export const headerStyles = StyleSheet.create({
   header: {
     height: 60,
-    marginTop: 50,
     padding: 16,
     backgroundColor: "transparent",
     flexDirection: "row",
@@ -39,6 +38,9 @@ export const noteStyles = StyleSheet.create({
     shadowColor: "black",
     elevation: 4,
   },
+  inputTitle: {
+    fontSize: 20,
+  },
 });
 
 export const buttonStyles = StyleSheet.create({
@@ -51,6 +53,7 @@ export const buttonStyles = StyleSheet.create({
     borderRadius: 30,
     borderColor: "orange",
     backgroundColor: "white",
+    zIndex: 10,
   },
 });
 
