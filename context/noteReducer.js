@@ -3,6 +3,7 @@ import {
   SAVE_NOTE,
   SET_NOTE_TO_EDIT,
   TOGGLE_MORE_OPTIONS,
+  TOGGLE_SIDE_BAR,
 } from "./constants";
 
 const deepClone = (state) => {
@@ -46,6 +47,12 @@ export const noteReducer = (state, action) => {
       const updatedState = deepClone(state);
       updatedState.uiState.isMoreOptionsOpen = action.payload.show;
 
+      return updatedState;
+    }
+
+    case TOGGLE_SIDE_BAR: {
+      const updatedState = deepClone(state);
+      updatedState.uiState.isSideBarOpen = action.payload.show;
       return updatedState;
     }
 

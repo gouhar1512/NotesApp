@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { moreOptionsStyles } from "../mainStyles";
 import { NoteContext, NoteDispathContext } from "../../context/noteContext";
 import { TOGGLE_MORE_OPTIONS } from "../../context/constants";
@@ -35,13 +35,7 @@ export const MoreOptions = () => {
   return (
     <>
       <View
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          left: 0,
-          top: 0,
-        }}
+        style={moreOptionsStyles.backdrop}
         onTouchStart={closeMoreOptions}
       />
       <TouchableOpacity

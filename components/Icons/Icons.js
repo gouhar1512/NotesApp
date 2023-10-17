@@ -4,6 +4,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 const DEFAULT_SIZE = 24;
 const DEFAULT_COLOR = "black";
 import { AntDesign } from "@expo/vector-icons";
+import { SimpleLineIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 const Icon = ({ name, size, color }) => (
   <Feather
@@ -34,4 +36,12 @@ export const AddIcon = ({ onPressHandler }) => (
 
 export const FavouriteIcon = () => (
   <AntDesign name="hearto" size={DEFAULT_SIZE} color={DEFAULT_COLOR} />
+);
+
+export const AllNotesIcon = () => (
+  <SimpleLineIcons name="notebook" size={DEFAULT_SIZE} color={DEFAULT_COLOR} />
+);
+
+export const TrashIcon = () => (
+  <Ionicons name="trash-outline" size={DEFAULT_SIZE} color={DEFAULT_COLOR} />
 );

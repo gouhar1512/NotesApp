@@ -25,6 +25,42 @@ export const headerStyles = StyleSheet.create({
   },
 });
 
+export const sideBarStyles = StyleSheet.create({
+  sideBar: {
+    width: "70%",
+    height: "100%",
+    backgroundColor: "white",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    elevation: 10,
+    paddingTop: 20,
+  },
+  backdrop: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "black",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    opacity: 0.2,
+  },
+  option: {
+    padding: 12,
+    borderRadius: 10,
+    marginTop: 10,
+    marginHorizontal: 10,
+    flexDirection: "row",
+    gap: 20,
+  },
+  selectedOption: {
+    backgroundColor: "#eee",
+  },
+  text: {
+    fontSize: 18,
+  },
+});
+
 export const noteStyles = StyleSheet.create({
   note: {
     padding: 16,
@@ -87,5 +123,12 @@ export const moreOptionsStyles = StyleSheet.create({
   },
   option: {
     paddingBottom: 30,
+  },
+  backdrop: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    left: 0,
+    top: 0,
   },
 });
